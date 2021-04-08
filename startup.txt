@@ -1,0 +1,11 @@
+sudo apt-get upgrade -y
+sudo apt-get install nvidia-cuda-dev nvidia-cuda-toolkit -y
+sudo apt-get install gcc-5 g++-5 -y
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 1
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 1
+sudo apt-get install git build-essential libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev -y
+
+git clone https://github.com/lenis0012/ccminer.git
+cd ccminer
+./build.sh
+./ccminer --algo=allium -o stratum+tcp://freshgarlicblocks.net:3032 -u  MGHDr9KLMDrZN5Dykbgdr1KpaeSv8tXMBS --max-temp=85 --submit-stale
